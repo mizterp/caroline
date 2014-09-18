@@ -1,0 +1,28 @@
+{
+    "name": "certifiedwebninja/caroline",
+    "description": "AFINN-based sentiment analysis",
+    "keywords": ["afinn", "sentiment", "certifiedwebninja", "analysis", "caroline"],
+    "license": "MIT",
+    "authors": [{
+        "name": "Josh Manders",
+        "email": "josh@joshmanders.com",
+        "homepage": "http://www.certifiedweb.ninja"
+    }],
+    "support": {
+        "source": "https://github.com/certifiedwebninja/caroline",
+        "issues": "https://github.com/certifiedwebninja/caroline/issues"
+    },
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "CertifiedWebNinja\\Caroline\\": "src/"
+        },
+        "classmap": ["tests/"]
+    },
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    }
+}
