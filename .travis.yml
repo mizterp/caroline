@@ -8,6 +8,7 @@ php:
 
 before_script:
   - composer require satooshi/php-coveralls:dev-master --dev --no-progress --prefer-source
+  - composer require codeclimate/php-test-reporter:dev-master
 
 
 script:
@@ -16,3 +17,4 @@ script:
 
 after_script:
  - php vendor/bin/coveralls -v
+ - CODECLIMATE_REPO_TOKEN=be59940588fe3900e79fb28af267392f768f22bb74b76d37d34edf5930b8474c vendor/bin/test-reporter
