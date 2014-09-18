@@ -1,20 +1,23 @@
 <?php namespace CertifiedWebNinja\Caroline;
 
+use CertifiedWebNinja\Caroline\DataSets\AbstractDataSet;
+use CertifiedWebNinja\Caroline\DataSets\AFINN;
+
 class Analysis
 {
     const REGEX_SPECIAL_CHARS = '/[^a-zA-Z- ]+/';
     const REGEX_MULTIPLE_SPACES = '/ {2,}/';
 
-    private $words = [];
+    private $dataSet = [];
 
-    public function __construct()
+    public function __construct(AbstractDataSet $dataSet = null)
     {
-        $words = file_get_contents(__DIR__.'/afinn.json');
-        $this->words = json_decode($words, true);
+        $this->dataSet = $dataSet ?: new AFINN;
     }
 
     public function analyze($string = null)
     {
+        $dataSet = $this->dataSet->getDataSet();
         $tokens = $this->tokenize($string);
         $length = count($tokens);
         $score = 0;
@@ -23,8 +26,8 @@ class Analysis
         $negative = [];
         while ($length--) {
             $word = $tokens[$length];
-            if (array_key_exists($word, $this->words)) {
-                $item = $this->words[$word];
+            if (array_key_exists($word, $dataSet)) {
+                $item = $dataSet[$word];
                 array_push($words, $word);
                 if ($item > 0) {
                     array_push($positive, $word);
