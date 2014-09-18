@@ -12,7 +12,7 @@ Sentiment analysis tool for PHP based on the [AFINN-111 wordlist](http://www2.im
 ## Install
 
 ```bash
-composer require certifiedwebninja/caroline@1.0.0
+composer require certifiedwebninja/caroline:1.0.0
 ```
 
 ## Example
