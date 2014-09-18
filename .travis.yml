@@ -8,8 +8,6 @@ php:
 
 before_script:
   - composer require satooshi/php-coveralls:dev-master --dev --no-progress --prefer-source
-  - composer require codeclimate/php-test-reporter:dev-master
-
 
 script:
  - mkdir -p build/logs
